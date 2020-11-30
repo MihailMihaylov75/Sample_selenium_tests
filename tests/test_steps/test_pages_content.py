@@ -1,19 +1,17 @@
 __author__ = 'Mihail Mihaylov'
 
-from selenium import webdriver
 import unittest
 
 from tests.pages.base_page import BasePage, URL
 from tests.pages.blog_page import BlogPage
+from tests.pages.browser_set_up import Browser
 
 
 class TestHomePageContent(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        self.driver = Browser().get_browser("chrome")
         self.driver.get(URL)
-        self.driver.maximize_window()
-        self.driver.implicitly_wait(2)
         self.page = BasePage(self.driver)
 
     def tearDown(self):
@@ -39,9 +37,7 @@ class TestHomePageContent(unittest.TestCase):
 class TestBlogPageContent(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.maximize_window()
-        self.driver.implicitly_wait(2)
+        self.driver = Browser().get_browser("chrome")
         self.driver.get(URL + '/blog')
         self.page = BlogPage(self.driver)
 

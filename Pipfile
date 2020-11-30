@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-selenium = "*"
+selenium = "==3.141.0"
 
 [requires]
 python_version = "3.6"
